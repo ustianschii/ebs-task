@@ -34,7 +34,7 @@ export const CartItemCard: FC<CartCardProps> = ({ product }) => {
       </QuantityContainer>
       <Price>${(price * quantity).toFixed(2)}</Price>
 
-      <RemoveButton onClick={remove}>X</RemoveButton>
+      <RemoveButton onClick={remove}>Remove</RemoveButton>
     </Container>
   );
 };

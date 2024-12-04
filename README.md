@@ -28,7 +28,7 @@ You will create a simple **Product Catalog** application where users can browse 
     <!-- - Implement basic routing using React Router for navigation between pages. -->
     <!-- - Use TypeScript for static typing and defining interfaces. -->
 3. **Styling**:
-    - Create a user-friendly interface with basic CSS styling (optional: use a CSS framework like TailwindCSS or Styled-Components).
+    <!-- - Create a user-friendly interface with basic CSS styling (optional: use a CSS framework like TailwindCSS or Styled-Components). -->
 4. **Testing**:
     - Write at least one unit test using [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/) or Jest.
 5. **Version Control**:
@@ -64,19 +64,19 @@ If you want to go the extra mile, you can also:
 
 ## Submission
 - **Delivery**: Share the GitHub repository link with us via email or any other preferred method.
-- **Review**: We will review your submission and provide feedback within 7 days of receiving the link.
-- **Questions**: If you have any questions or need clarification, feel free to reach out to us.
+<!-- - **Review**: We will review your submission and provide feedback within 7 days of receiving the link. -->
+<!-- - **Questions**: If you have any questions or need clarification, feel free to reach out to us. -->
 <!-- - **Good Luck!** We look forward to seeing your work and learning more about your skills and approach to front-end development. -->
 
 
 ## Evaluation Criteria
 We will assess your work based on:
 - **Functionality**: Correct implementation of the features listed.
-- **API Integration**: Fetching data from the API and handling responses.
+<!-- - **API Integration**: Fetching data from the API and handling responses. -->
 <!-- - **State Management**: Effective use of `useState` and `Context` for managing state. -->
-- **Code Quality**: Clean, readable, and maintainable code with well-typed components.
+<!-- - **Code Quality**: Clean, readable, and maintainable code with well-typed components. -->
 - **Testing**: Basic tests to validate functionality or rendering.
-- **Git Usage**: Clear and incremental commits reflecting your progress.
+<!-- - **Git Usage**: Clear and incremental commits reflecting your progress. -->
 - **Styling**: A visually appealing and functional user interface.
 
 ## Getting started
@@ -106,7 +106,7 @@ We will assess your work based on:
 <!-- - [ ] Allow users to change the quantity of products in the cart. -->
 <!-- - [ ] Allow users to remove products from the cart. -->
 <!-- - [ ] Show the total price for all products in the cart. -->
-- [ ] Add a button to clear all products from the cart.
+<!-- - [ ] Add a button to clear all products from the cart. -->
 
 ### Bonus:
 - [ ] Anything you want to add to impress us! Consider the bonus points mentioned above.

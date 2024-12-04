@@ -10,7 +10,7 @@ export const Container = styled.header`
 
 export const Toolbar = styled.div`
   display: flex;
-  min-width: 900px;
+  min-width: 1200px;
   justify-content: space-between;
 `;
 

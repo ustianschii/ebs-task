@@ -1,4 +1,5 @@
 import { FC } from "react";
+
 import { Button, Container, Overlay } from "./styles";
 
 interface ModalProps {

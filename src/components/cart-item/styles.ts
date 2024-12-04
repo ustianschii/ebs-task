@@ -20,12 +20,28 @@ export const Title = styled.div`
   text-align: center;
 `;
 
-export const Quantity = styled.div`
+export const QuantityContainer = styled.div`
   display: flex;
   width: 23%;
   align-items: center;
   justify-content: center;
+`;
+
+export const Quantity = styled.div`
+  padding: 0 10px;
   text-align: center;
+  font-size: 18px;
+`;
+
+export const IncDecButton = styled.button`
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 5px;
+  &:hover {
+    color: grey;
+  }
 `;
 
 export const Price = styled.div`

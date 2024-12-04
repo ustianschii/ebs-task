@@ -1,10 +1,12 @@
 import { FC } from "react";
 import { CartCardProps } from "./types";
 import {
+  IncDecButton,
   Container,
   Image,
   Price,
   Quantity,
+  QuantityContainer,
   RemoveButton,
   Title,
 } from "./styles";
@@ -13,7 +15,7 @@ import { useCartContext } from "../../context/CartContext";
 export const CartItemCard: FC<CartCardProps> = ({ product }) => {
   const { id, image, title, quantity, price } = product;
 
-  const { removeItemFromCart } = useCartContext();
+  const { removeItemFromCart, increment, decrement } = useCartContext();
 
   const remove = () => {
     removeItemFromCart(id);
@@ -25,8 +27,13 @@ export const CartItemCard: FC<CartCardProps> = ({ product }) => {
       <Title>
         <span style={{ width: "70%" }}>{title}</span>
       </Title>
-      <Quantity>{quantity}</Quantity>
-      <Price>$ {price}</Price>
+      <QuantityContainer>
+        <IncDecButton onClick={() => decrement(id)}>-</IncDecButton>
+        <Quantity>{quantity}</Quantity>
+        <IncDecButton onClick={() => increment(id)}>+</IncDecButton>
+      </QuantityContainer>
+      <Price>${(price * quantity).toFixed(2)}</Price>
+
       <RemoveButton onClick={remove}>X</RemoveButton>
     </Container>
   );

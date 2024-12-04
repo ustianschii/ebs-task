@@ -39,13 +39,51 @@ export const CartProvider: React.FC<CartProviderProps> = ({ children }) => {
     localStorage.removeItem("cart");
   };
 
+  const increment = (id: number) => {
+    setCart((prevCart) =>
+      prevCart.map((cartItem) =>
+        cartItem.id === id
+          ? { ...cartItem, quantity: cartItem.quantity + 1 }
+          : cartItem
+      )
+    );
+  };
+
+  const decrement = (id: number) => {
+    setCart((prevCart) => {
+      const updatedCart = prevCart.map((cartItem) =>
+        cartItem.id === id && cartItem.quantity > 1
+          ? { ...cartItem, quantity: cartItem.quantity - 1 }
+          : cartItem
+      );
+
+      const itemToRemove = updatedCart.find(
+        (cartItem) => cartItem.id === id && cartItem.quantity <= 1
+      );
+
+      if (itemToRemove) {
+        removeItemFromCart(id);
+        return updatedCart.filter((cartItem) => cartItem.id !== id);
+      }
+
+      return updatedCart;
+    });
+  };
+
   useEffect(() => {
     console.log("Updated cart:", cart);
   }, [cart]);
 
   return (
     <CartContext.Provider
-      value={{ cart, addItemToCart, removeItemFromCart, clearCart }}
+      value={{
+        cart,
+        addItemToCart,
+        removeItemFromCart,
+        increment,
+        decrement,
+        clearCart,
+      }}
     >
       {children}
     </CartContext.Provider>

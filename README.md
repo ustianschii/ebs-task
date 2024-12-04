@@ -18,7 +18,7 @@ You will create a simple **Product Catalog** application where users can browse 
     <!-- - A **Shopping Cart Page** listing products added to the "Shopping Cart" -->
     <!-- - A **Filter and Sort Feature** allowing users to filter products by category and to sort by price. -->
     <!-- - **Add to Cart** and **Remove from Cart** functionality for each product. -->
-    - **Total Price** calculation for all products in the cart.
+    <!-- - **Total Price** calculation for all products in the cart. -->
     <!-- - **Clear Cart** button to remove all products from the cart. -->
 2. **Technical Implementation**:
     <!-- - Fetch product data from a public mock API (https://fakestoreapi.com/).  -->
@@ -103,9 +103,9 @@ We will assess your work based on:
 <!-- - [ ] Implement filtering by category and sorting by price (asc/desc). -->
 ### Create the Shopping Cart Page:
 <!-- - [ ] Display the list of products added to the shopping cart. -->
-- [ ] Allow users to change the quantity of products in the cart.
+<!-- - [ ] Allow users to change the quantity of products in the cart. -->
 <!-- - [ ] Allow users to remove products from the cart. -->
-- [ ] Show the total price for all products in the cart.
+<!-- - [ ] Show the total price for all products in the cart. -->
 - [ ] Add a button to clear all products from the cart.
 
 ### Bonus:

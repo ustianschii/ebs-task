@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC } from "react";
 import {
   Container,
   Image,
@@ -10,17 +10,34 @@ import {
   CartButton,
 } from "./styles";
 
-import { ProductCardProps } from "./types";
+import { Product, ProductCardProps } from "./types";
+import { useCartContext } from "../../context/CartContext";
 
 const cutDescription = (text: string, maxLength: number): string => {
   return text.length > maxLength ? `${text.slice(0, maxLength)}...` : text;
 };
 
 const ProductCard: FC<ProductCardProps> = ({ products }) => {
-  const [inCart, setInCart] = useState(false);
+  const { cart, addItemToCart, removeItemFromCart } = useCartContext();
 
-  const toggleCart = () => {
-    setInCart((prev) => !prev);
+  const isInCart = (productId: number) =>
+    cart.some((item) => item.id === productId);
+
+  const addToCart = (product: Product) => {
+    if (!isInCart(product.id)) {
+      addItemToCart({
+        id: product.id,
+        image: product.image,
+        name: product.title,
+        price: product.price,
+        title: product.title,
+        quantity: 1,
+      });
+    }
+  };
+
+  const removeFromCart = (productId: number) => {
+    removeItemFromCart(productId);
   };
 
   return (
@@ -28,6 +45,8 @@ const ProductCard: FC<ProductCardProps> = ({ products }) => {
       {products.map((product) => {
         const { id, title, price, description, category, image, rating } =
           product;
+
+        const inCart = isInCart(id);
 
         return (
           <Container key={id}>
@@ -53,9 +72,21 @@ const ProductCard: FC<ProductCardProps> = ({ products }) => {
               </Rating>
             </div>
             <div>
-              <CartButton inCart={inCart} onClick={toggleCart}>
-                {inCart ? "Remove from Cart" : "Add to Cart"}
-              </CartButton>
+              <div>
+                {!inCart ? (
+                  <CartButton incart={false} onClick={() => addToCart(product)}>
+                    Add to cart
+                  </CartButton>
+                ) : (
+                  <CartButton
+                    incart={true}
+                    onClick={() => removeFromCart(id)}
+                    style={{ backgroundColor: "red" }}
+                  >
+                    Remove from cart
+                  </CartButton>
+                )}
+              </div>
             </div>
           </Container>
         );

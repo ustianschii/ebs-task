@@ -41,10 +41,10 @@ export const Rating = styled.p`
   color: orange;
 `;
 
-export const CartButton = styled.button<{ inCart: boolean }>`
+export const CartButton = styled.button<{ incart: boolean }>`
   width: 100%;
   padding: 10px 20px;
-  background-color: ${(props) => (props.inCart ? "red" : "green")};
+  background-color: ${(props) => (props.incart ? "red" : "green")};
   color: white;
   border: none;
   border-radius: 10px;

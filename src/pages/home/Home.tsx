@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import { Layout } from "../../components/layout/Layout";
 import ProductCard from "../../components/product-card/product-card";
@@ -51,13 +51,18 @@ const Home: React.FC = () => {
   return (
     <Layout>
       <Wrapper>
-        <Container>
+        <div
+          style={{
+            display: "flex",
+          }}
+        >
           <SortButtons
             setSortOrder={setSortOrder}
             categories={categories}
             setSelectedCategory={setSelectedCategory}
           />
-
+        </div>
+        <Container>
           {filteredProducts.length > 0 ? (
             <>
               {filteredProducts.map((product) => (

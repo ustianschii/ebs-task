@@ -11,7 +11,13 @@ const SortButtons: React.FC<SortButtonsProps> = ({
   };
 
   return (
-    <div>
+    <div
+      style={{
+        width: "600px",
+        display: "flex",
+        justifyContent: "space-between",
+      }}
+    >
       <select onChange={categoryChange}>
         <option value="">select category</option>
         {categories.map((category, index) => (

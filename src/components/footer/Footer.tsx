@@ -14,7 +14,9 @@ export default function Footer() {
       </Copyright>
       <Links>
         {links.map(({ name, href }) => (
-          <Link href={href}>{name}</Link>
+          <Link key={name} href={href}>
+            {name}
+          </Link>
         ))}
       </Links>
     </Container>

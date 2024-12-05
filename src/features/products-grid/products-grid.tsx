@@ -12,6 +12,7 @@ const ProductsGrid: FC = () => {
   >("none");
   const [selectedCategory, setSelectedCategory] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(true);
+  const [fetchError, setFetchError] = useState<string | null>(null);
 
   const categories = [...new Set(products.map((product) => product.category))];
 
@@ -19,10 +20,11 @@ const ProductsGrid: FC = () => {
     const fetchProducts = async () => {
       try {
         setLoading(true);
-        const res = await fetch("https://fakestoreapi.com/products");
+        setFetchError(null);
 
+        const res = await fetch("https://fakestoreapi.com/products");
         if (!res.ok) {
-          throw new Error("Failed to fetch");
+          throw new Error("Failed to fetch products. Please try again.");
         }
 
         const data: Product[] = await res.json();
@@ -32,7 +34,7 @@ const ProductsGrid: FC = () => {
           setLoading(false);
         }, 1000);
       } catch (error) {
-        console.log(error);
+        setFetchError((error as Error).message);
       } finally {
         setLoading(false);
       }
@@ -64,6 +66,22 @@ const ProductsGrid: FC = () => {
     setFilteredProducts(filtered);
   }, [sortOrder, products, selectedCategory]);
 
+  if (loading) {
+    return (
+      <LoadingContainer>
+        <Spinner />
+      </LoadingContainer>
+    );
+  }
+
+  if (fetchError) {
+    return (
+      <LoadingContainer>
+        <p role="alert">{fetchError}</p>
+      </LoadingContainer>
+    );
+  }
+
   return (
     <>
       <SortButtons
@@ -71,17 +89,11 @@ const ProductsGrid: FC = () => {
         categories={categories}
         setSelectedCategory={setSelectedCategory}
       />
-      {loading ? (
-        <LoadingContainer>
-          <Spinner />
-        </LoadingContainer>
-      ) : (
-        <Container>
-          {filteredProducts.map((product) => (
-            <ProductCard key={product.id} products={[product]} />
-          ))}
-        </Container>
-      )}
+      <Container>
+        {filteredProducts.map((product) => (
+          <ProductCard key={product.id} products={[product]} />
+        ))}
+      </Container>
     </>
   );
 };

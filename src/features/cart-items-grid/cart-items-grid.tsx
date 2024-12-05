@@ -32,7 +32,10 @@ const CartItemsGrid = () => {
   return (
     <Container>
       <ClearButtonContainer>
-        <StyledButton onClick={() => setShowModal(true)}>
+        <StyledButton
+          onClick={() => setShowModal(true)}
+          aria-label="Clear all cart items"
+        >
           Clear cart
         </StyledButton>
       </ClearButtonContainer>
@@ -40,6 +43,7 @@ const CartItemsGrid = () => {
         <ClearCartModal
           onConfirm={handleClearCart}
           onCancel={() => setShowModal(false)}
+          aria-label="Confirmation window to clear the cart"
         />
       )}
       <CartHeader>
@@ -65,7 +69,11 @@ const CartItemsGrid = () => {
           <div style={{ justifyItems: "center", fontSize: "25px" }}>
             <p>Empty cart...</p>
             <StyledButton>
-              <a href="/" style={{ textDecoration: "none", color: "inherit" }}>
+              <a
+                href="/"
+                style={{ textDecoration: "none", color: "inherit" }}
+                aria-label="Go to the shop page to add items to the cart"
+              >
                 Go to shoping!
               </a>
             </StyledButton>

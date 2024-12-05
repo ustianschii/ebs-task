@@ -20,12 +20,8 @@ export const ClearCartModal: FC<ModalProps> = ({ onConfirm, onCancel }) => {
             marginTop: "20px",
           }}
         >
-          <Button className="confirm" onClick={onConfirm}>
-            Yes
-          </Button>
-          <Button className="cancel" onClick={onCancel}>
-            No
-          </Button>
+          <Button onClick={onConfirm}>Yes</Button>
+          <Button onClick={onCancel}>No</Button>
         </div>
       </Container>
     </>

@@ -28,12 +28,5 @@ export const Button = styled.button`
   cursor: pointer;
   border: 1px solid black;
   border-radius: 10px;
-
-  &.confirm {
-    background-color: green;
-  }
-
-  &.cancel {
-    background-color: red;
-  }
+  background-color: gray;
 `;

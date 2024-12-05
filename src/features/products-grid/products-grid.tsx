@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import ProductCard from "../../components/product-card/product-card";
 import { Container, Spinner, LoadingContainer } from "./styles";
 import { Product } from "../../components/product-card/types";
@@ -29,7 +29,7 @@ const ProductsGrid: FC = () => {
           throw new Error("Failed to fetch products. Please try again.");
         }
 
-        const data: Product[] = await res.json();
+        const data = (await res.json()) as unknown as Product[];
         setTimeout(() => {
           setProducts(data);
           setFilteredProducts(data);

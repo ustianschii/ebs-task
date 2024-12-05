@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
 import { CartItemCard } from "../../components/cart-item/cart-item-card";
 import { useCartContext } from "../../context/CartContext";

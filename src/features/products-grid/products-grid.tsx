@@ -1,7 +1,6 @@
 import { FC, useEffect, useState } from "react";
-
 import ProductCard from "../../components/product-card/product-card";
-import { Container } from "./styles";
+import { Container, Spinner, LoadingContainer } from "./styles";
 import { Product } from "../../components/product-card/types";
 import SortButtons from "../../components/sort-buttons/sort-buttons";
 
@@ -12,23 +11,30 @@ const ProductsGrid: FC = () => {
     "asc" | "desc" | "category" | "none"
   >("none");
   const [selectedCategory, setSelectedCategory] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(true);
 
   const categories = [...new Set(products.map((product) => product.category))];
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
+        setLoading(true);
         const res = await fetch("https://fakestoreapi.com/products");
 
         if (!res.ok) {
-          throw new Error("failed to fetch");
+          throw new Error("Failed to fetch");
         }
 
         const data: Product[] = await res.json();
-        setProducts(data);
-        setFilteredProducts(data);
+        setTimeout(() => {
+          setProducts(data);
+          setFilteredProducts(data);
+          setLoading(false);
+        }, 1000);
       } catch (error) {
         console.log(error);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -65,17 +71,17 @@ const ProductsGrid: FC = () => {
         categories={categories}
         setSelectedCategory={setSelectedCategory}
       />
-      <Container>
-        {filteredProducts.length > 0 ? (
-          <>
-            {filteredProducts.map((product) => (
-              <ProductCard key={product.id} products={[product]} />
-            ))}
-          </>
-        ) : (
-          <p>Empty stock</p>
-        )}
-      </Container>
+      {loading ? (
+        <LoadingContainer>
+          <Spinner />
+        </LoadingContainer>
+      ) : (
+        <Container>
+          {filteredProducts.map((product) => (
+            <ProductCard key={product.id} products={[product]} />
+          ))}
+        </Container>
+      )}
     </>
   );
 };

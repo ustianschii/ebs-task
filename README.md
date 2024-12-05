@@ -38,7 +38,7 @@ You will create a simple **Product Catalog** application where users can browse 
 The bonus points are **optional** features that you can implement to enhance the application and showcase your skills. You can choose one or more of the following:
 <!-- - **Responsive Design**: Make the application responsive for different screen sizes(mobile size it's enough). (tip: use media queries). -->
 - **Error Handling**: Implement error handling for API requests and user interactions. (tip: show error messages to users).
-- **Loading State**: Add loading indicators or skeleton screens to improve the user experience. (tip: use loading state for API requests).
+<!-- - **Loading State**: Add loading indicators or skeleton screens to improve the user experience. (tip: use loading state for API requests). -->
 - **Accessibility**: Ensure the application is accessible and follows best practices for web accessibility. (tip: use semantic HTML elements).
 - **Additional Features**: Add any additional features or enhancements you think would improve the application. (tip: product details modal/page, search functionality).
 - **Documentation**: Provide a README with clear instructions on how to run the application and a brief description of your approach and any important decisions made.
@@ -46,7 +46,11 @@ The bonus points are **optional** features that you can implement to enhance the
 
 ### Super Bonus Points
 If you want to go the extra mile, you can also:
+
+
 - **Deployment**: Deploy the application to a hosting service like Netlify, Vercel, or GitHub Pages.
+
+
 - **Testing**: Write additional unit tests to ensure the application works as expected.
 - **Pagination**: Implement pagination for the product list. (tip: use query parameters for pagination).
 - **Animations**: Add animations or transitions to enhance the user experience. (tip: use CSS transitions).
@@ -71,13 +75,13 @@ If you want to go the extra mile, you can also:
 
 ## Evaluation Criteria
 We will assess your work based on:
-- **Functionality**: Correct implementation of the features listed.
+<!-- - **Functionality**: Correct implementation of the features listed. -->
 <!-- - **API Integration**: Fetching data from the API and handling responses. -->
 <!-- - **State Management**: Effective use of `useState` and `Context` for managing state. -->
 <!-- - **Code Quality**: Clean, readable, and maintainable code with well-typed components. -->
 - **Testing**: Basic tests to validate functionality or rendering.
 <!-- - **Git Usage**: Clear and incremental commits reflecting your progress. -->
-- **Styling**: A visually appealing and functional user interface.
+<!-- - **Styling**: A visually appealing and functional user interface. -->
 
 ## Getting started
 <!-- - Clone this repository and run `npm install` to install the dependencies. -->

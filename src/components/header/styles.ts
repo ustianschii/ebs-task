@@ -10,8 +10,16 @@ export const Container = styled.header`
 
 export const Toolbar = styled.div`
   display: flex;
-  min-width: 1200px;
   justify-content: space-between;
+
+  @media (max-width: 600px) {
+    width: 100%;
+    padding: 0 10px;
+  }
+
+  @media (min-width: 1200px) {
+    min-width: 1200px;
+  }
 `;
 
 export const Nav = styled.nav``;

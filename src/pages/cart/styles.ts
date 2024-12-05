@@ -6,4 +6,7 @@ export const Wrapper = styled.div`
   align-items: center;
   margin-top: 50px;
   min-height: 80vh;
+  @media (max-width: 600px) {
+    margin-top: 0px;
+  }
 `;

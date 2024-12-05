@@ -9,6 +9,7 @@ import {
   QuantityContainer,
   RemoveButton,
   Title,
+  Info,
 } from "./styles";
 import { useCartContext } from "../../context/CartContext";
 
@@ -24,15 +25,18 @@ export const CartItemCard: FC<CartCardProps> = ({ product }) => {
   return (
     <Container>
       <Image src={image} height="280px" width="23%" />
-      <Title>
-        <span style={{ width: "70%" }}>{title}</span>
-      </Title>
-      <QuantityContainer>
-        <IncDecButton onClick={() => decrement(id)}>-</IncDecButton>
-        <Quantity>{quantity}</Quantity>
-        <IncDecButton onClick={() => increment(id)}>+</IncDecButton>
-      </QuantityContainer>
-      <Price>${(price * quantity).toFixed(2)}</Price>
+
+      <Info>
+        <Title>
+          <span style={{ width: "70%" }}>{title}</span>
+        </Title>
+        <QuantityContainer>
+          <IncDecButton onClick={() => decrement(id)}>-</IncDecButton>
+          <Quantity>{quantity}</Quantity>
+          <IncDecButton onClick={() => increment(id)}>+</IncDecButton>
+        </QuantityContainer>
+        <Price>${(price * quantity).toFixed(2)}</Price>
+      </Info>
 
       <RemoveButton onClick={remove}>Remove</RemoveButton>
     </Container>

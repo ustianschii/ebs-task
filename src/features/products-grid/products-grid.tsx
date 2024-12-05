@@ -60,17 +60,11 @@ const ProductsGrid: FC = () => {
 
   return (
     <>
-      <div
-        style={{
-          display: "flex",
-        }}
-      >
-        <SortButtons
-          setSortOrder={setSortOrder}
-          categories={categories}
-          setSelectedCategory={setSelectedCategory}
-        />
-      </div>
+      <SortButtons
+        setSortOrder={setSortOrder}
+        categories={categories}
+        setSelectedCategory={setSelectedCategory}
+      />
       <Container>
         {filteredProducts.length > 0 ? (
           <>

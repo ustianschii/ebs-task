@@ -1,3 +1,4 @@
+import { CategorySelect, SortButton, Container } from "./styles";
 import { SortButtonsProps } from "./types";
 
 const SortButtons: React.FC<SortButtonsProps> = ({
@@ -11,29 +12,23 @@ const SortButtons: React.FC<SortButtonsProps> = ({
   };
 
   return (
-    <div
-      style={{
-        width: "600px",
-        display: "flex",
-        justifyContent: "space-between",
-      }}
-    >
-      <select onChange={categoryChange}>
-        <option value="">select category</option>
+    <Container>
+      <CategorySelect onChange={categoryChange}>
+        <option value="">Select category</option>
         {categories.map((category, index) => (
           <option key={index} value={category}>
             {category}
           </option>
         ))}
-      </select>
-      <button onClick={() => setSortOrder("asc")}>
-        sort by price: low to high
-      </button>
-      <button onClick={() => setSortOrder("desc")}>
-        sort by price: high to low
-      </button>
-      <button onClick={() => setSortOrder("none")}>reset</button>
-    </div>
+      </CategorySelect>
+      <SortButton onClick={() => setSortOrder("asc")}>
+        Sort by price: low to high
+      </SortButton>
+      <SortButton onClick={() => setSortOrder("desc")}>
+        Sort by price: high to low
+      </SortButton>
+      <SortButton onClick={() => setSortOrder("none")}>Reset</SortButton>
+    </Container>
   );
 };
 

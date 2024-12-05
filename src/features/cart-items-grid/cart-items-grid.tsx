@@ -2,7 +2,14 @@ import { useState } from "react";
 
 import { CartItemCard } from "../../components/cart-item/cart-item-card";
 import { useCartContext } from "../../context/CartContext";
-import { CartHeader, Container, HeaderBlock } from "./styles";
+import {
+  CartHeader,
+  Container,
+  HeaderBlock,
+  ClearButtonContainer,
+  StyledButton,
+  SumContainer,
+} from "./styles";
 import { ClearCartModal } from "../../components/clear-cart-modal/clear-cart-modal";
 
 const CartItemsGrid = () => {
@@ -24,16 +31,11 @@ const CartItemsGrid = () => {
 
   return (
     <Container>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "flex-end",
-          margin: "30px 0",
-          fontSize: "20px",
-        }}
-      >
-        <button onClick={() => setShowModal(true)}>Clear cart</button>
-      </div>
+      <ClearButtonContainer>
+        <StyledButton onClick={() => setShowModal(true)}>
+          Clear cart
+        </StyledButton>
+      </ClearButtonContainer>
       {showModal && (
         <ClearCartModal
           onConfirm={handleClearCart}
@@ -61,23 +63,16 @@ const CartItemsGrid = () => {
           </>
         ) : (
           <div style={{ justifyItems: "center", fontSize: "25px" }}>
-            <p>Empty cart</p>
-            <button>
+            <p>Empty cart...</p>
+            <StyledButton>
               <a href="/" style={{ textDecoration: "none", color: "inherit" }}>
                 Go to shoping!
               </a>
-            </button>
+            </StyledButton>
           </div>
         )}
       </div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "flex-end",
-          margin: "30px 0",
-          fontSize: "25px",
-        }}
-      >
+      <SumContainer>
         Total: $
         {cart
           .reduce(
@@ -85,7 +80,7 @@ const CartItemsGrid = () => {
             0
           )
           .toFixed(2)}
-      </div>
+      </SumContainer>
     </Container>
   );
 };

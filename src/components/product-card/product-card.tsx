@@ -8,6 +8,7 @@ import {
   Category,
   Rating,
   CartButton,
+  TitlePriceBox,
 } from "./styles";
 
 import { Product, ProductCardProps } from "./types";
@@ -52,17 +53,10 @@ const ProductCard: FC<ProductCardProps> = ({ products }) => {
           <Container key={id}>
             <div>
               <Image src={image} alt={title} />
-              <div
-                style={{
-                  minHeight: "150px",
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "space-between",
-                }}
-              >
+              <TitlePriceBox>
                 <Title>{title}</Title>
                 <Price>${price}</Price>
-              </div>
+              </TitlePriceBox>
               <Description>{cutDescription(description, 150)}</Description>
             </div>
             <div>

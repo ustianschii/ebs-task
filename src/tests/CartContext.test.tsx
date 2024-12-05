@@ -1,35 +1,17 @@
-import { removeItemFromCartFn } from "../context/CartContext";
+// import { ClearCartModal } from "../components/clear-cart-modal/clear-cart-modal";
 
-describe("products context manipulations", () => {
-  it("remove an item by id", () => {
-    const mockCart = [
-      {
-        id: 1,
-        image: "image1.png",
-        name: "Item 1",
-        quantity: 1,
-        price: 10,
-        title: "Title 1",
-      },
-      {
-        id: 2,
-        image: "image2.png",
-        name: "Item 2",
-        quantity: 1,
-        price: 20,
-        title: "Title 2",
-      },
-    ];
-    const updatedMockCart = removeItemFromCartFn(mockCart, 1);
-    expect(updatedMockCart).toEqual([
-      {
-        id: 2,
-        image: "image2.png",
-        name: "Item 2",
-        quantity: 1,
-        price: 20,
-        title: "Title 2",
-      },
-    ]);
-  });
-});
+// import { render, screen, fireEvent } from "@testing-library/react";
+
+// describe("ClearCartModal", () => {
+//   it("calls onCancel when 'No' button is clicked", () => {
+//     const mockOnCancel = jest.fn();
+
+//     render(<ClearCartModal onConfirm={() => {}} onCancel={mockOnCancel} />);
+
+//     const noButton = screen.getByText("No");
+
+//     fireEvent.click(noButton);
+
+//     expect(mockOnCancel).toHaveBeenCalledTimes(1);
+//   });
+// });

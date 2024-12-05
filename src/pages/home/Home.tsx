@@ -1,3 +1,4 @@
+import React from "react";
 import { Layout } from "../../components/layout/Layout";
 import { Wrapper } from "./styles";
 import ProductsGrid from "../../features/products-grid/products-grid";

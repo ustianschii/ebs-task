@@ -1,3 +1,4 @@
+import React from "react";
 import { CategorySelect, SortButton, Container } from "./styles";
 import { SortButtonsProps } from "./types";
 

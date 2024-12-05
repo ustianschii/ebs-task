@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import ProductCard from "../../components/product-card/product-card";
 import { Container, Spinner, LoadingContainer } from "./styles";
 import { Product } from "../../components/product-card/types";
